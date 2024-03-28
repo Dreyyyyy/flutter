@@ -4,12 +4,24 @@ void main() {
   runApp(const MyApp());
 }
 
+Future<int> multiplicationByTwo(int num) {
+  return Future.delayed(const Duration(seconds: 5), () {
+    return num * 2;
+  });
+}
+
+void test() async {
+  final res = await multiplicationByTwo(8);
+  print(res);
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    test();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
